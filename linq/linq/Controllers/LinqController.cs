@@ -30,7 +30,7 @@ namespace linq.Controllers
         public string ShowCustomByAddress(string keyword)
         {
             NorthwindEntities db = new NorthwindEntities();
-            var reslut = db.客戶.Where(m=>m.地址.Contains(keyword);
+            var reslut = db.客戶.Where(m=>m.地址.Contains(keyword));
             var show = "";
             foreach (var item in reslut)
             {
