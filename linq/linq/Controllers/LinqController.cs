@@ -56,5 +56,16 @@ namespace linq.Controllers
             return show;
 
         }
+
+        public string ShowProductInfo()
+        {
+            NorthwindEntities db = new NorthwindEntities();
+
+            string show = "";
+            var result = db.產品資料;
+            show += "單價平均:" + result.Average(m=>m.單價) + "<br/>" + "單價總和:" + result.Sum(m=>m.單價) + "<br/>" + "紀錄比數" + result.Count() + "<br/>" +
+                    "單價最高:" + result.Max(m => m.單價) + "<hr/>";
+            return show;
+        }
     }
 }
