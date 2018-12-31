@@ -40,5 +40,21 @@ namespace linq.Controllers
             return show;
 
         }
+        public string Product()
+        {
+            NorthwindEntities db = new NorthwindEntities();
+           
+            string show = "";
+            var result = db.產品資料
+                .Where(m => m.單價 > 30)
+                .OrderBy(m => m.單價)
+                .ThenByDescending(m => m.庫存量);
+            foreach(var item in result)
+            {
+                show += "產品:" + item.產品 + "<br/>" + "單價:" + item.單價+ "<br/>" + "庫存" + item.庫存量 + "<hr/>";
+            }
+            return show;
+
+        }
     }
 }
