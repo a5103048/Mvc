@@ -17,18 +17,20 @@ namespace slnModelValidate.Models
     public partial class tStudent
     {
         [DisplayName("學號")]
-        [Required(ErrorMessage = "NOT NULL")]
-        [StringLength(7,ErrorMessage="LENGTH=7")]
+        [Required(ErrorMessage = "學號不可空白")]
+        [StringLength(7, ErrorMessage = "學號必須是2-7個字元", MinimumLength = 2)]
         public string fStuId { get; set; }
-        [DisplayName("姓名")]
-        [Required(ErrorMessage ="NOT NULL")]
-        public string fName { get; set; }
-        [DisplayName("信箱")]
-        [EmailAddress(ErrorMessage = "format")]
-        public string fEmail { get; set; }
-        [DisplayName("成績")]
-        [Range(0,100,ErrorMessage = "1-100")]
 
+        [DisplayName("姓名")]
+        [Required(ErrorMessage = "姓名不可空白")]
+        public string fName { get; set; }
+
+        [DisplayName("信箱")]
+        [EmailAddress(ErrorMessage = "E-Mail格式有誤")]
+        public string fEmail { get; set; }
+
+        [DisplayName("成績")]
+        [Range(0, 100, ErrorMessage = "分數必須是0-100")]
         public Nullable<int> fScore { get; set; }
     }
 }
